@@ -28,7 +28,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'Should bring the 5 first comments' do
-    first_com = Comment.create(post:, user:, text: 'Hi Tom!')
+    Comment.create(post:, user:, text: 'Hi Tom!')
     second_com = Comment.create(post:, user:, text: 'Hi Tom!')
     third_com = Comment.create(post:, user:, text: 'Hi Tom!')
     fourth_com = Comment.create(post:, user:, text: 'Hi Tom!')
@@ -40,7 +40,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'Should have 1 like in the post' do
-    like = Like.create(post:, user:)
+    Like.create(post:, user:)
     expect(post.likes_counter).to eq(1)
   end
 end

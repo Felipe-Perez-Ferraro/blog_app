@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'Should bring the 3 first posts' do
-    first_post = Post.create(author: user, title: 'post 1', text: 'This is my first post')
+    Post.create(author: user, title: 'post 1', text: 'This is my first post')
     second_post = Post.create(author: user, title: 'post 2', text: 'This is my second post')
     third_post = Post.create(author: user, title: 'post 3', text: 'This is my third post')
     fourth_post = Post.create(author: user, title: 'post 4', text: 'This is my fourth post')
