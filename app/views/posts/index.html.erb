@@ -20,7 +20,7 @@
   
   <% post.order_post_comments.each do |comment| %>
     <% user = User.find(comment.user_id) %>
-    <p>@<%= user.name %>: <%= comment.text %></p>
+    <p class="text-bold">@<%= user.name %>: <%= comment.text %></p>
   <% end %>
 <% end %>
 
