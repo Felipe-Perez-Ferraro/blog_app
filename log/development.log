@@ -815,3 +815,41 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 23ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 2649)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-07 14:58:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | Allocations: 376)
+Completed 200 OK in 46ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 4901)
+
+
+Started GET "/users/" for 127.0.0.1 at 2023-11-07 14:58:08 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 593.5ms | Allocations: 104722)
+Completed 200 OK in 606ms (Views: 601.4ms | ActiveRecord: 0.0ms | Allocations: 105658)
+
+
+Started GET "/rails/info/routes" for ::1 at 2023-11-07 15:05:05 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/layouts/application.html.erb
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [30 times] (Duration: 5.0ms | Allocations: 4912)
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 26.1ms | Allocations: 1280)
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 94.3ms | Allocations: 9543)
+  Rendered layout C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/layouts/application.html.erb (Duration: 97.1ms | Allocations: 9814)
+Completed 200 OK in 125ms (Views: 110.6ms | ActiveRecord: 0.0ms | Allocations: 10746)
+
+
+Started GET "/users/1" for ::1 at 2023-11-07 15:11:13 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 13907)
+Completed 200 OK in 47ms (Views: 43.5ms | ActiveRecord: 0.0ms | Allocations: 14762)
+
+
