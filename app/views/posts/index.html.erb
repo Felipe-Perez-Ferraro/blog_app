@@ -1,1 +1,25 @@
-<h1 class="posts_title">posts:</h1>
+<%= link_to user_path(@user.id) do %>
+  < Back to <%= @user.name %> profile
+<% end %>
+
+<div>
+  <img src=<%= @user.photo %> >
+  <h2><%= @user.name %></h2>
+  <p>Number of posts: <%= @user.post_counter %></p>
+</div>  
+
+<% @posts.each_with_index do |post, index| %>
+  <%= link_to user_post_path(@user.id, post.id) do %>
+    <div>
+      <h3>Post <%= index + 1 %></h3>
+      <p><%= post.title %></p>
+      <p>Likes: <%= post.likes.count %></p>
+      <p>Comments: <%= post.comments.count %></p>
+    </div>
+  <% end %>
+  
+  <% post.order_post_comments.each do |comment| %>
+    <% user = User.find(comment.user_id) %>
+    <p>@<%= user.name %>: <%= comment.text %></p>
+  <% end %>
+<% end %>
