@@ -1,1 +1,31 @@
-<h1 class="post_title">post:</h1>
+<%= link_to user_posts_path(@user.id) do %>
+  < Back to <%= @user.name %> posts
+<% end %>
+
+<div>
+  <div>
+    <h2>Post <%= @post.id %> by <%= @user.name %></h2>
+    <ul>
+      <li>
+        Comments: <%= @post.comments.count %>
+      </li>
+      <li>
+        Likes: <%= @post.likes.count %>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h4><%= @post.title %></h4>
+    <p><%= @post.text %></p>
+  </div>
+
+  <% if @post.comments.count > 0 %>
+    <% @post.comments.each do |comment| %>
+      <% user = User.find(comment.user_id) %>
+    < p>@<%= user.name %>: <%= comment.text %></p>
+    <% end %>
+  <% else %>
+    <p>This post has no comments.</p>
+  <% end %>
+</div>
