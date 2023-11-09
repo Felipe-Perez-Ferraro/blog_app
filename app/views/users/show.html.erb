@@ -1,34 +1,43 @@
-<%= link_to users_path(@user.id) do %>
-  < Back to Users
-<% end %>
-
-<div>
-  <img src=<%= @user.photo %> >
-  <h2><%= @user.name %></h2>
-  <p>Number of posts: <%= @user.post_counter %></p>
-</div>
-
-<div>
-  <h2>Bio</h2>
-  <p><%= @user.bio %></p>
-</div>
-
-<% if @user.posts.count > 0 %>
-  <% @user.order_user_posts.each_with_index do |post, index| %>
-    <%= link_to user_post_path(@user.id, post.id) do %>
-      <div>
-        <h3>Post <%= post.id %></h3>
-        <p><%= post.text %></p>
-        <p>Likes: <%= post.likes.count %></p>
-        <p>Comments: <%= post.comments.count %></p>
+<section class="w-full h-screen bg-slate-700">
+  <%= link_to users_path do %>
+    <p class="text-slate-200 text-sm p-2">< Back to Users </p>
+  <% end %>
+  
+  <article class="max-w-sm md:max-w-lg mx-auto flex flex-col gap-y-5">
+    <div class="flex items-center gap-x-3">
+      <img class="w-20 h-20" src=<%= @user.photo %> >
+      <div class="border border-slate-100 rounded p-2 w-full flex justify-between h-20">
+        <h2 class='font-bold text-slate-200 text-lg self-center'><%= @user.name %></h2>
+        <p class="font-semibold text-slate-200 text-sm self-end">Number of posts: <%= @user.post_counter %></p>
       </div>
+    </div>
+
+    <div class="border border-slate-100 rounded p-2 w-full h-48 flex flex-col gap-y-2">
+      <h2 class='font-bold text-slate-200 text-lg'>Bio</h2>
+      <p class="font-semibold text-slate-200 text-sm"><%= @user.bio %></p>
+    </div>
+
+    <% if @user.posts.count > 0 %>
+      <% @user.order_user_posts.each_with_index do |post, index| %>
+        <%= link_to user_post_path(@user.id, post.id) do %>
+          <div class="border border-slate-100 rounded p-2 flex flex-col gap-y-2">
+            <h3 class="text-sm font-bold text-slate-200 pb-1">Post <%= post.id %></h3>
+            <p class="text-md font-bold text-slate-200"><%= post.text %></p>
+            <div class="flex justify-end gap-x-2">
+              <p class="text-sm font-bold text-slate-200">Likes: <%= post.likes.count %></p>
+              <p class="text-sm font-bold text-slate-200">Comments: <%= post.comments.count %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="flex justify-center">
+        <%= link_to user_posts_path(@user.id) do %>
+          <button class="border border-slate-200 rounded py-1 px-4 text-sm font-bold text-slate-200" type="button">See all posts</button>
+        <% end %>
+      </div>
+    <% else %>
+      <p>@<%= @user.name %> has no posts yet.</p>
     <% end %>
-  <% end %>
-
-  <%= link_to user_posts_path(@user.id) do %>
-    <button type="button">See all posts</button>
-  <% end %>
-<% else %>
-  <p>@<%= @user.name %> has no posts yet.</p>
-<% end %>
-
+  </article>
+</section>
