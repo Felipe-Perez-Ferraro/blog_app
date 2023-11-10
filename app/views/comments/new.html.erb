@@ -1,0 +1,18 @@
+<section>
+  <%= link_to user_post_path(@current_user.id, @post) do %>
+    <p class="text-slate-200 text-sm p-2">< Back to <%= @current_user.name %> post</p>
+  <% end %>
+  <article class="max-w-sm md:max-w-lg mx-auto my-4 py-2 px-4 border border-slate-200">
+    <h2 class="text-center font-bold text-slate-200 text-xl mb-3">Add new Comment for post <%= @post.id %></h2>
+    <%= form_with class:"flex flex-col gap-y-3", model: @comment, url: user_post_comments_path(@current_user) do |form| %>
+      <div class="flex flex-col gap-y-1">
+        <%= form.label :text, class:"font-semibol text-slate-200 text-md" %>
+        <%= form.text_field :text, class:"rounded" %>
+      </div>
+      
+      <div class="flex justify-center">
+        <%= form.submit "Add Comment", class:"border border-slate-200 font-bold text-md py-1 px-4 text-slate-200 mt-3" %>
+      </div>
+    <% end %>
+  </article>
+</section>
