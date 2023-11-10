@@ -105,8 +105,6 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Felipe Perez Ferraro**
 
 - GitHub: [@Felipe-Perez-Ferraro](https://github.com/Felipe-Perez-Ferraro)
