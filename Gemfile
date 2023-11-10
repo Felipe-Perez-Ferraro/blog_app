@@ -67,3 +67,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
+
+gem 'foreman', '~> 0.87.2'
+
+gem 'tailwindcss-rails', '~> 2.0'
