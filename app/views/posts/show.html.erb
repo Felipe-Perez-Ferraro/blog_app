@@ -33,6 +33,14 @@
         <p class="font-semibold text-sm text-slate-200">This post has no comments.</p>
       <% end %>
     </div>
+    <div class="flex gap-x-1">
+    <%= form_with model: @like, url: user_post_likes_path(@user, @post) do |form| %>
+      <%= form.submit 'Like', class: "border border-slate-200 p-1 rounded text-slate-200 font-bold" %>
+    <% end %>
+      <%= link_to new_user_post_comment_path(@user.id, @post.id) do %>
+        <button class="border border-slate-200 p-1 rounded text-slate-200 font-bold" type="button">Comment</button>
+      <% end %>
+    </div>
   </div>
   </article>
 </section>
