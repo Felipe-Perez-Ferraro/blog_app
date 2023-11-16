@@ -17,9 +17,9 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('posts/index')
     end
 
-    it 'Should get the <h1> tag content' do
+    it 'Should get the content' do
       get user_posts_path(@user)
-      assert_select '.posts_title', 'posts:'
+      expect(response.body).to include('Number of posts: ')
     end
   end
 
@@ -34,9 +34,9 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('posts/show')
     end
 
-    it 'Should get the <h1> tag content' do
+    it 'Should get the content' do
       get user_post_path(user_id: @user.id, id: @post.id)
-      assert_select '.post_title', 'post:'
+      expect(response.body).to include('Post ')
     end
   end
 end

@@ -34148,3 +34148,290 @@ Started GET "/url" for 127.0.0.1 at 2023-11-16 15:55:57 -0300
   
 ActionController::RoutingError (No route matches [GET] "/url"):
   
+Started GET "/users/2" for 127.0.0.1 at 2023-11-16 15:58:06 -0300
+Started GET "/users/url" for 127.0.0.1 at 2023-11-16 15:58:06 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"url"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 2], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:21:in `each_with_index'
+  [1m[36mLike Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/users/show.html.erb:29
+  Rendered users/show.html.erb within layouts/application (Duration: 47.4ms | Allocations: 12732)
+  Rendered layout layouts/application.html.erb (Duration: 97.7ms | Allocations: 34466)
+Completed 200 OK in 134ms (Views: 96.1ms | ActiveRecord: 20.0ms | Allocations: 42735)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 404 Not Found in 149ms (ActiveRecord: 16.7ms | Allocations: 45577)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=url):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/2/posts/2" for 127.0.0.1 at 2023-11-16 15:58:11 -0300
+Started GET "/users/2/posts/url" for 127.0.0.1 at 2023-11-16 15:58:11 -0300
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"url"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+Completed 404 Not Found in 11ms (ActiveRecord: 0.6ms | Allocations: 2686)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=url):
+  
+app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mPost Load (2.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:12
+  [1m[36mLike Count (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:15
+  [1m[36mCACHE Comment Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:28
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:29
+  Rendered posts/show.html.erb within layouts/application (Duration: 26.4ms | Allocations: 20744)
+  Rendered layout layouts/application.html.erb (Duration: 72.4ms | Allocations: 83691)
+Completed 200 OK in 201ms (Views: 67.7ms | ActiveRecord: 11.5ms | Allocations: 229969)
+
+
+Started GET "/users/2/posts/url" for 127.0.0.1 at 2023-11-16 15:58:21 -0300
+Started GET "/users/2/posts/2" for 127.0.0.1 at 2023-11-16 15:58:21 -0300
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"url"}
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+Completed 404 Not Found in 9ms (ActiveRecord: 0.8ms | Allocations: 1847)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=url):
+  
+app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:12
+  [1m[36mLike Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:15
+  [1m[36mCACHE Comment Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:28
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:29
+  Rendered posts/show.html.erb within layouts/application (Duration: 22.9ms | Allocations: 8547)
+  Rendered layout layouts/application.html.erb (Duration: 79.3ms | Allocations: 74495)
+Completed 200 OK in 217ms (Views: 74.4ms | ActiveRecord: 7.2ms | Allocations: 219123)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-16 15:59:54 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 166.6ms | Allocations: 15975)
+  Rendered layout layouts/application.html.erb (Duration: 344.4ms | Allocations: 72830)
+Completed 200 OK in 420ms (Views: 333.3ms | ActiveRecord: 22.7ms | Allocations: 82191)
+
+
+Started GET "/url" for 127.0.0.1 at 2023-11-16 15:59:55 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/url"):
+  
+Started GET "/users/2" for 127.0.0.1 at 2023-11-16 16:00:25 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 2], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:21:in `each_with_index'
+  [1m[36mLike Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mComment Count (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/users/show.html.erb:29
+  Rendered users/show.html.erb within layouts/application (Duration: 91.0ms | Allocations: 19362)
+  Rendered layout layouts/application.html.erb (Duration: 111.8ms | Allocations: 26865)
+Completed 200 OK in 200ms (Views: 93.7ms | ActiveRecord: 19.6ms | Allocations: 36847)
+
+
+Started GET "/users/url" for 127.0.0.1 at 2023-11-16 16:00:25 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"url"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.2ms | Allocations: 895)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=url):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/2/posts/2" for 127.0.0.1 at 2023-11-16 16:00:33 -0300
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:12
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:15
+  [1m[36mCACHE Comment Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/show.html.erb:28
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:29
+  Rendered posts/show.html.erb within layouts/application (Duration: 36.1ms | Allocations: 9272)
+  Rendered layout layouts/application.html.erb (Duration: 57.6ms | Allocations: 16526)
+Completed 200 OK in 77ms (Views: 64.3ms | ActiveRecord: 2.3ms | Allocations: 18716)
+
+
+Started GET "/users/2/posts/url" for 127.0.0.1 at 2023-11-16 16:00:33 -0300
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"url"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1412)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=url):
+  
+app/controllers/posts_controller.rb:9:in `show'
+Started GET "/users/2/posts" for 127.0.0.1 at 2023-11-16 16:01:30 -0300
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 LIMIT $2 OFFSET $3[0m  [["author_id", 2], ["LIMIT", 4], ["OFFSET", 0]]
+  ↳ app/views/posts/index.html.erb:15:in `each_with_index'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:15:in `each_with_index'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:15:in `each_with_index'
+  [1m[36mLike Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:22
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:23
+  [1m[36mCACHE Comment Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/index.html.erb:28
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/posts/index.html.erb:30
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:31
+  Rendered posts/index.html.erb within layouts/application (Duration: 104.8ms | Allocations: 20001)
+  Rendered layout layouts/application.html.erb (Duration: 126.6ms | Allocations: 27504)
+Completed 200 OK in 133ms (Views: 124.9ms | ActiveRecord: 2.8ms | Allocations: 28640)
+
+
+Started GET "/users/2/url" for 127.0.0.1 at 2023-11-16 16:01:30 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/url"):
+  
+Started GET "/users/url" for 127.0.0.1 at 2023-11-16 16:01:31 -0300
+Started GET "/users/2" for 127.0.0.1 at 2023-11-16 16:01:31 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"url"}
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 404 Not Found in 8ms (ActiveRecord: 0.2ms | Allocations: 1876)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=url):
+  
+app/controllers/users_controller.rb:7:in `show'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 2], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:21:in `each_with_index'
+  [1m[36mLike Count (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/users/show.html.erb:28
+  [1m[36mComment Count (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/users/show.html.erb:29
+  Rendered users/show.html.erb within layouts/application (Duration: 21.2ms | Allocations: 4079)
+  Rendered layout layouts/application.html.erb (Duration: 53.2ms | Allocations: 12255)
+Completed 200 OK in 298ms (Views: 45.6ms | ActiveRecord: 20.4ms | Allocations: 261127)
+
+
+Started GET "/users/url" for 127.0.0.1 at 2023-11-16 16:01:31 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"url"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.2ms | Allocations: 866)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=url):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users" for 127.0.0.1 at 2023-11-16 16:01:32 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 490)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 8002)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.4ms | Allocations: 8277)
+
+
+Started GET "/url" for 127.0.0.1 at 2023-11-16 16:01:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/url"):
+  

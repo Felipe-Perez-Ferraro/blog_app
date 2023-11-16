@@ -16,9 +16,9 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('users/index')
     end
 
-    it 'Should get the <h1> tag content' do
+    it 'Should get the content' do
       get users_path
-      assert_select '.users_title', 'users:'
+      expect(response.body).to include('Number of posts: ')
     end
   end
 
@@ -33,9 +33,9 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('users/show')
     end
 
-    it 'Should get the <h1> tag content' do
+    it 'Should get the content' do
       get user_path(@user)
-      assert_select '.user_title', 'user:'
+      expect(response.body).to include('Bio')
     end
   end
 end
