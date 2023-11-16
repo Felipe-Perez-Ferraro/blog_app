@@ -15,9 +15,10 @@
     <% @posts.each_with_index do |post, index| %>
       <div class="flex flex-col gap-y-2">
         <div class="border border-slate-100 rounded p-2 w-full flex flex-col gap-y-1">
-          <%= link_to user_post_path(@user.id, post.id) do %>
+          <%= link_to user_post_path(@user.id, post.id), id: "post_id_#{post.id}" do %>
             <h3 class="text-sm font-bold text-slate-200 pb-1">Post <%= post.id %></h3>
             <p class="text-md font-bold text-slate-200"><%= post.title %></p>
+            <p class="text-md font-bold text-slate-200"><%= post.text %></p>
             <div class="flex justify-end gap-x-2">
               <p class="text-sm font-bold text-slate-200">Likes: <%= post.likes.count %></p>
               <p class="text-sm font-bold text-slate-200">Comments: <%= post.comments.count %></p>
