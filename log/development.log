@@ -48920,3 +48920,390 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 30ms (Views: 23.1ms | ActiveRecord: 1.0ms | Allocations: 9820)
 
 
+Started GET "/users/18" for 127.0.0.1 at 2023-11-17 13:22:02 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (4.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 18]]
+  ↳ app/views/users/show.html.erb:20
+  Rendered users/show.html.erb within layouts/application (Duration: 48.8ms | Allocations: 3777)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 147.6ms | Allocations: 26363)
+Completed 200 OK in 368ms (Views: 156.3ms | ActiveRecord: 34.5ms | Allocations: 38310)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-17 13:22:09 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 817)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 8792)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 1.8ms | Allocations: 9131)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-17 13:22:16 -0300
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 14ms (ActiveRecord: 0.6ms | Allocations: 2296)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:22:17 -0300
+Processing by UsersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 581)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 7933)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.5ms | Allocations: 8250)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:23:50 -0300
+  
+SyntaxError (C:/Users/fpere/blog_app/app/controllers/users_controller.rb:6: syntax error, unexpected ':', expecting '}'
+      format.json { rednder: :json => @users }
+                           ^
+C:/Users/fpere/blog_app/app/controllers/users_controller.rb:13: syntax error, unexpected `end'):
+  
+app/controllers/users_controller.rb:6: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:13: syntax error, unexpected `end'
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:24:09 -0300
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at C:/Users/fpere/blog_app/config/environment.rb:5)
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:25:15 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms | Allocations: 3751)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/users_controller.rb:5:in `respond_to?'
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:25:51 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 316.1ms | Allocations: 28142)
+  Rendered layout layouts/application.html.erb (Duration: 477.5ms | Allocations: 83925)
+Completed 200 OK in 496ms (Views: 431.5ms | ActiveRecord: 52.4ms | Allocations: 86056)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:26:12 -0300
+Processing by UsersController#index as HTML
+Completed 406 Not Acceptable in 6ms (ActiveRecord: 0.0ms | Allocations: 1467)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2023-11-17 13:26:49 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 7748)
+  Rendered layout layouts/application.html.erb (Duration: 77.7ms | Allocations: 29567)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 7.2ms | Allocations: 31463)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-17 14:11:09 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (153.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 158.3ms | Allocations: 3586)
+  Rendered layout layouts/application.html.erb (Duration: 223.2ms | Allocations: 25462)
+Completed 200 OK in 249ms (Views: 70.5ms | ActiveRecord: 167.0ms | Allocations: 27358)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-17 14:11:15 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 232)
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 582)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 27.0ms | Allocations: 2963)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 10174)
+Completed 200 OK in 86ms (Views: 70.2ms | ActiveRecord: 0.0ms | Allocations: 17783)
+
+
+Started POST "/users" for 127.0.0.1 at 2023-11-17 14:11:27 -0300
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"fperezferraro@gmail.com", "name"=>"Felipe Perez Ferraro", "bio"=>"bio", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fperezferraro@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "post_counter", "created_at", "updated_at", "posts_counter", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "role") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["name", "Felipe Perez Ferraro"], ["photo", nil], ["bio", "bio"], ["post_counter", 0], ["created_at", "2023-11-17 17:11:27.583637"], ["updated_at", "2023-11-17 17:11:27.583637"], ["posts_counter", 0], ["email", "fperezferraro@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["role", 0]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 364ms (ActiveRecord: 8.1ms | Allocations: 10561)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-17 14:11:27 -0300
+Processing by UsersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 541)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 8932)
+Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 1.4ms | Allocations: 9250)
+
+
+Started GET "/users/20" for 127.0.0.1 at 2023-11-17 14:11:33 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/views/users/show.html.erb:20
+  Rendered users/show.html.erb within layouts/application (Duration: 65.8ms | Allocations: 5948)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 99.7ms | Allocations: 14038)
+Completed 200 OK in 110ms (Views: 76.6ms | ActiveRecord: 25.2ms | Allocations: 15469)
+
+
+Started GET "/users/20/posts/new" for 127.0.0.1 at 2023-11-17 14:11:35 -0300
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:13:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 1350)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | Allocations: 8423)
+Completed 200 OK in 121ms (Views: 54.7ms | ActiveRecord: 0.6ms | Allocations: 17110)
+
+
+Started POST "/users/20/posts" for 127.0.0.1 at 2023-11-17 14:11:41 -0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"post 1", "text"=>"post 1"}, "commit"=>"Add Post", "user_id"=>"20"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+  [1m[36mPost Create (1.8ms)[0m  [1m[32mINSERT INTO "posts" ("author_id", "title", "text", "likes_counter", "comments_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["author_id", 20], ["title", "post 1"], ["text", "post 1"], ["likes_counter", 0], ["comments_counter", 0], ["created_at", "2023-11-17 17:11:41.891499"], ["updated_at", "2023-11-17 17:11:41.891499"]]
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+  [1m[36mPost Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/models/post.rb:21:in `post_counter'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "post_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["post_counter", 1], ["updated_at", "2023-11-17 17:11:41.900082"], ["id", 20]]
+  ↳ app/models/post.rb:21:in `post_counter'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+Redirected to http://127.0.0.1:3000/users/20
+Completed 302 Found in 39ms (ActiveRecord: 6.8ms | Allocations: 7392)
+
+
+Started GET "/users/20" for 127.0.0.1 at 2023-11-17 14:11:41 -0300
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 20], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:21:in `each_with_index'
+  [1m[36mLike Count (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  ↳ app/views/users/show.html.erb:29
+  [1m[36mComment Count (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 30]]
+  ↳ app/views/users/show.html.erb:30
+  Rendered users/show.html.erb within layouts/application (Duration: 42.2ms | Allocations: 6817)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 68.1ms | Allocations: 14776)
+Completed 200 OK in 74ms (Views: 56.5ms | ActiveRecord: 13.0ms | Allocations: 15508)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-17 14:11:53 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 526)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 39.9ms | Allocations: 8566)
+Completed 200 OK in 43ms (Views: 39.7ms | ActiveRecord: 1.3ms | Allocations: 8843)
+
+
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:12:17 -0300
+  
+SyntaxError (C:/Users/fpere/blog_app/app/controllers/api/v1/posts_controller.rb:20: syntax error, unexpected `end'):
+  
+app/controllers/api/v1/posts_controller.rb:20: syntax error, unexpected `end'
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:13:57 -0300
+  
+SyntaxError (C:/Users/fpere/blog_app/app/controllers/api/v1/posts_controller.rb:20: syntax error, unexpected `end'):
+  
+app/controllers/api/v1/posts_controller.rb:20: syntax error, unexpected `end'
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:16:06 -0300
+Processing by Api::V1::PostsController#index as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:14:in `set_user'
+Completed 406 Not Acceptable in 43ms (ActiveRecord: 14.5ms | Allocations: 11315)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/api/v1/posts_controller.rb:6:in `index'
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:16:20 -0300
+Processing by Api::V1::PostsController#index as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:14:in `set_user'
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 10.7ms | Allocations: 11314)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1..2)):
+  
+app/controllers/api/v1/posts_controller.rb:6:in `respond_to?'
+app/controllers/api/v1/posts_controller.rb:6:in `index'
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:19:17 -0300
+  
+SyntaxError (C:/Users/fpere/blog_app/app/controllers/api/v1/posts_controller.rb:15: syntax error, unexpected `end'
+    end
+    ^~~
+):
+  
+app/controllers/api/v1/posts_controller.rb:15: syntax error, unexpected `end'
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:19:36 -0300
+Processing by Api::V1::PostsController#index as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:12:in `set_user'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 5.0ms | Allocations: 11287)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/api/v1/posts_controller.rb:6:in `format'
+app/controllers/api/v1/posts_controller.rb:6:in `index'
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:19:47 -0300
+Processing by Api::V1::PostsController#index as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:12:in `set_user'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 44ms (Views: 6.4ms | ActiveRecord: 7.7ms | Allocations: 15826)
+
+
+Started GET "/users/20" for 127.0.0.1 at 2023-11-17 14:20:16 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 20], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:21:in `each_with_index'
+  [1m[36mLike Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  ↳ app/views/users/show.html.erb:29
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 30]]
+  ↳ app/views/users/show.html.erb:30
+  Rendered users/show.html.erb within layouts/application (Duration: 36.7ms | Allocations: 7332)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 88.5ms | Allocations: 29986)
+Completed 200 OK in 104ms (Views: 87.5ms | ActiveRecord: 9.9ms | Allocations: 31429)
+
+
+Started GET "/users/20/posts/new" for 127.0.0.1 at 2023-11-17 14:20:18 -0300
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:13:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 918)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 8072)
+Completed 200 OK in 51ms (Views: 42.4ms | ActiveRecord: 0.4ms | Allocations: 9458)
+
+
+Started POST "/users/20/posts" for 127.0.0.1 at 2023-11-17 14:20:27 -0300
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"new pos 2", "text"=>"new pos 2"}, "commit"=>"Add Post", "user_id"=>"20"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("author_id", "title", "text", "likes_counter", "comments_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["author_id", 20], ["title", "new pos 2"], ["text", "new pos 2"], ["likes_counter", 0], ["comments_counter", 0], ["created_at", "2023-11-17 17:20:27.784679"], ["updated_at", "2023-11-17 17:20:27.784679"]]
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+  [1m[36mPost Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/models/post.rb:21:in `post_counter'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "post_counter" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["post_counter", 2], ["updated_at", "2023-11-17 17:20:27.791580"], ["id", 20]]
+  ↳ app/models/post.rb:21:in `post_counter'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:21:in `create'
+Redirected to http://127.0.0.1:3000/users/20
+Completed 302 Found in 27ms (ActiveRecord: 4.6ms | Allocations: 7103)
+
+
+Started GET "/users/20" for 127.0.0.1 at 2023-11-17 14:20:27 -0300
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 20], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:21:in `each_with_index'
+  [1m[36mLike Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 31]]
+  ↳ app/views/users/show.html.erb:29
+  [1m[36mComment Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 31]]
+  ↳ app/views/users/show.html.erb:30
+  [1m[36mLike Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 30]]
+  ↳ app/views/users/show.html.erb:29
+  [1m[36mComment Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 30]]
+  ↳ app/views/users/show.html.erb:30
+  Rendered users/show.html.erb within layouts/application (Duration: 29.0ms | Allocations: 3507)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 76.1ms | Allocations: 11464)
+Completed 200 OK in 87ms (Views: 72.6ms | ActiveRecord: 6.3ms | Allocations: 12231)
+
+
+Started GET "/api/v1/users/20/posts" for ::1 at 2023-11-17 14:20:30 -0300
+Processing by Api::V1::PostsController#index as HTML
+  Parameters: {"user_id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/posts_controller.rb:12:in `set_user'
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 20]]
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 12ms (Views: 4.4ms | ActiveRecord: 1.0ms | Allocations: 1359)
+
+

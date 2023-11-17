@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   def admin?
-    role == 'admin'
+    role == 1
   end
 
   def order_user_posts
