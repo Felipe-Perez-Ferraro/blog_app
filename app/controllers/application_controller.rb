@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   # Must be disable for API applications.
   protect_from_forgery with: :exception
   before_action :update_allowed_parameters, if: :devise_controller?
-  before_action :authenticate_user!
 
   protected
 
