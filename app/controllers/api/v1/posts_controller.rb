@@ -3,7 +3,7 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @posts = @user.posts
-    render json: @posts 
+    render json: @posts
   end
 
   private
