@@ -10,8 +10,10 @@ class Post < ApplicationRecord
   after_save :post_counter
 
   def order_post_comments
-    comments.order(created_at: :desc).limit(5)
+    comments.includes(:user).order(created_at: :desc).limit(5)
   end
+
+  self.per_page = 4
 
   private
 

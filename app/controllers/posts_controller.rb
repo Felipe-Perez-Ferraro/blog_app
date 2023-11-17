@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @user = current_user
+    @posts = @user.posts.paginate(page: params[:page], per_page: 4).includes(:comments, :likes)
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = Post.find(params[:id])
   end
 
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = current_user.posts.build(post_params)
 
     if @post.save
