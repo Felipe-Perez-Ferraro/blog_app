@@ -1,0 +1,36 @@
+<section>
+  <article class="max-w-sm md:max-w-lg lg:max-w-2xl mx-auto py-10">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "w-full flex flex-col gap-y-3 border border-slate-200 rounded p-2" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="w-full">
+        <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: "w-full rounded" %>
+      </div>
+
+      <div class="w-full">
+        <%= f.text_field :name, autocomplete: "name", placeholder: "Name", class: "w-full rounded" %>
+      </div>
+      
+      <div class="w-full">
+        <%= f.text_field :bio, placeholder: "Bio", class: "w-full rounded" %>
+      </div>
+
+      <div class="field">
+        <% if @minimum_password_length %>
+        <em class="font-semibold text-md text-slate-200">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "w-full rounded" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password",
+        class: "w-full rounded" %>
+      </div>
+
+      <div class="flex justify-center w-full">
+        <%= f.submit "Sign up", class: "w-full border border-slate-200 rounded py-1 px-4 text-sm font-bold text-slate-200 cursor-pointer" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </article>
+</section>
