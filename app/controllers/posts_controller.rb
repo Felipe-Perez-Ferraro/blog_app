@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     @posts = @user.posts.paginate(page: params[:page], per_page: 4).includes(:comments, :likes)
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
 
@@ -23,6 +25,16 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @user = current_user
+
+    return unless @post.destroy
+
+    @user.decrement!(:post_counter)
+    redirect_to user_posts_path(@user)
   end
 
   private
