@@ -37169,3 +37169,6 @@ Processing by Devise::PasswordsController#new as HTML
 Completed 200 OK in 115ms (Views: 97.6ms | ActiveRecord: 3.9ms | Allocations: 31844)
 
 
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at C:/Users/fpere/blog_app/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at C:/Users/fpere/blog_app/config/environment.rb:5)
+  [1m[36mUser Pluck (3.2ms)[0m  [1m[34mSELECT "role" FROM "users"[0m
