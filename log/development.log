@@ -37158,3 +37158,17 @@ Processing by Devise::PasswordsController#create as TURBO_STREAM
 Completed 422 Unprocessable Entity in 32ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 10426)
 
 
+Started GET "/users/password/new" for ::1 at 2023-11-16 22:48:07 -0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 214)
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 770)
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 2023)
+  Rendered layout layouts/application.html.erb (Duration: 79.9ms | Allocations: 23594)
+Completed 200 OK in 115ms (Views: 97.6ms | ActiveRecord: 3.9ms | Allocations: 31844)
+
+
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at C:/Users/fpere/blog_app/config/environment.rb:5)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at C:/Users/fpere/blog_app/config/environment.rb:5)
+  [1m[36mUser Pluck (3.2ms)[0m  [1m[34mSELECT "role" FROM "users"[0m
