@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  gap: 14px;
+}
+
+a {
+  color: rgb(241 245 249);
+}
+
+.current {
+  color: rgb(241 245 249);
+  text-decoration: underline;
+  margin-bottom: 1px;
+}
+
+.previous_page {
+  color: rgb(241 245 249);
+}
+
+.next_page {
+  color: rgb(241 245 249);
+}

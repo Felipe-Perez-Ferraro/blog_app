@@ -1,0 +1,15 @@
+<main class="h-screen w-full bg-slate-700">
+  <% @users.each do |user| %>
+    <article class="max-w-sm md:max-w-lg mx-auto py-10">
+      <%= link_to user_path(user.id) do %>
+        <div class="flex items-center gap-x-3">
+          <img class="w-20 h-20" src=<%= user.photo %> >
+          <div class="border border-slate-100 rounded p-2 w-full flex justify-between h-20">
+            <h2 class='font-bold text-slate-200 text-lg self-center'><%= user.name %></h2>
+            <p class="font-semibold text-slate-200 text-sm self-end">Number of posts: <%= user.post_counter %></p>
+          </div>
+        </div>
+      <% end %>
+    </article>
+  <% end %>
+</main>

@@ -1,0 +1,58 @@
+<section class="w-full h-screen bg-slate-700">
+  <%= link_to user_path(@user.id) do %>
+    <p class="text-slate-200 text-sm p-2">< Back to <%= @user.name %> profile </p>
+  <% end %>
+  
+  <article class="max-w-sm md:max-w-lg mx-auto flex flex-col gap-y-5">
+    <div class="flex items-center gap-x-3">
+      <img class="w-20 h-20" src=<%= @user.photo %> >
+      <div class="border border-slate-100 rounded p-2 w-full flex justify-between h-20">
+        <h2 class='font-bold text-slate-200 text-lg self-center'><%= @user.name %></h2>
+        <p class="font-semibold text-slate-200 text-sm self-end">Number of posts: <%= @user.post_counter %></p>
+      </div>
+      </div>  
+      
+    <% @posts.each_with_index do |post, index| %>
+      <div class="flex flex-col gap-y-2">
+        <div class="border border-slate-100 rounded p-2 w-full flex flex-col gap-y-1">
+          <%= link_to user_post_path(@user.id, post.id), id: "post_id_#{post.id}" do %>
+            <h3 class="text-sm font-bold text-slate-200 pb-1">Post <%= post.id %></h3>
+              <p class="text-md font-bold text-slate-200"><%= post.title %></p>
+              <p class="text-md font-bold text-slate-200"><%= post.text %></p>
+            <div class="flex justify-end gap-x-2 py-2">
+              <p class="text-sm font-bold text-slate-200">Likes: <%= post.likes.count %></p>
+              <p class="text-sm font-bold text-slate-200">Comments: <%= post.comments.count %></p>  
+            </div>
+          <% end %>
+        </div>
+      
+        <% if can? :delete, post %>
+          <%= button_to "Delete", user_post_path(@user, post), method: :delete, class: "border border-slate-200 px-4 py-1 rounded text-slate-200" %>
+        <% end %>
+          
+        <% if post.comments.count > 0 %> 
+          <div class="border border-slate-100 rounded p-1 w-full flex flex-col gap-y-2 justify-between">
+            <% post.order_post_comments.each do |comment| %>
+              <% user = User.find(comment.user_id) %>
+              <div class="flex justify-between items-center">
+                <p class="text-sm font-semibold text-slate-200">@<%= user.name %>: <%= comment.text %></p>
+                <% if can? :delete, comment %>
+                  <%= button_to "Delete Comment", user_post_comment_path(@user, post, comment), method: :delete, class: "border border-slate-200 px-4 py-1 rounded text-slate-200" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="border border-slate-100 rounded p-1 w-full flex flex-col gap-y-1">
+          <p class="text-sm font-semibold text-slate-200">There is no comments.</p>
+          </div>      
+        <% end %> 
+      </div>
+    <% end %>
+    
+    <div class="flex justify-center">
+      <%= will_paginate @posts, param_name: 'page' %>
+    </div>
+          
+  </article>
+</section>

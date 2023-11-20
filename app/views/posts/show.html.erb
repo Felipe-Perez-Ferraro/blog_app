@@ -1,0 +1,55 @@
+<section class="w-full h-screen bg-slate-700">
+  <%= link_to user_posts_path(@user.id) do %>
+    <p class="text-slate-200 text-sm p-2">< Back to <%= @user.name %> posts</p>
+  <% end %>
+
+  <article class="max-w-sm md:max-w-lg mx-auto flex flex-col gap-y-1">
+    <div class="border border-slate-200 rounded p-2">
+      <div class="flex items-center justify-between">
+        <h2 class="font-bold text-lg text-slate-200">Post <%= @post.id %> by <%= @user.name %></h2>
+        <ul class="flex items-center gap-x-2">
+          <li class="font-semibold text-sm text-slate-200">
+            Comments: <%= @post.comments.count %>
+          </li>
+          <li class="font-semibold text-sm text-slate-200">
+            Likes: <%= @post.likes.count %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="py-2">
+        <h4 class="font-medium text-md text-slate-200"><%= @post.title %></h4>
+        <p class="font-medium text-md text-slate-200"><%= @post.text %></p>
+      </div>
+    </div>
+
+    <% if can? :delete, @post %>
+      <%= button_to "Delete", user_post_path(@user, @post), method: :delete, class: "border border-slate-200 px-4 py-1 rounded text-slate-200" %>
+    <% end %>
+
+    <div class="border border-slate-200 rounded p-2 flex flex-col gap-y-1 mt-2">
+      <% if @post.comments.count > 0 %>
+        <% @post.comments.each do |comment| %>
+          <% user = User.find(comment.user_id) %>
+          <div class="flex justify-between items-center">
+          <p class="text-sm font-semibold text-slate-200">@<%= user.name %>: <%= comment.text %></p>
+          <% if can? :delete, comment %>
+            <%= button_to "Delete Comment", user_post_comment_path(@user, @post, comment), method: :delete, class: "border border-slate-200 px-4 py-1 rounded text-slate-200" %>
+          <% end %>
+        </div>
+      <% end %>
+      <% else %>
+        <p class="font-semibold text-sm text-slate-200">This post has no comments.</p>
+      <% end %>
+    </div>
+    <div class="flex gap-x-1">
+    <%= form_with model: @like, url: user_post_likes_path(@user, @post) do |form| %>
+      <%= form.submit 'Like', class: "border border-slate-200 p-1 rounded text-slate-200 font-bold" %>
+    <% end %>
+      <%= link_to new_user_post_comment_path(@user.id, @post.id) do %>
+        <button class="border border-slate-200 p-1 rounded text-slate-200 font-bold" type="button">Comment</button>
+      <% end %>
+    </div>
+  </div>
+  </article>
+</section>
